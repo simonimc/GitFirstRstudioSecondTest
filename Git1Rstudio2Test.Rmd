@@ -1,0 +1,21 @@
+---
+title: "Git1Rstudio2Test"
+author: "Molly Simonis"
+date: "June 2, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+x<- seq(1, 10, 1)
+y<- seq(1, 50, 5)
+
+df<- as.data.frame(cbind(x, y))
+
+plot(df$x, df$y)
+```
+
+
