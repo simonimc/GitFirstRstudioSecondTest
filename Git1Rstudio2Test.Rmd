@@ -5,10 +5,17 @@ date: "June 2, 2019"
 output: html_document
 ---
 
+Work on placing an rmd file into your new git repostiory
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+#install.packages('usethis')
+library(usethis)
+library(tidyverse)
+library(ggplot2)
 ```
 
+Make a table and plot
 ```{r}
 x<- seq(1, 10, 1)
 y<- seq(1, 50, 5)
@@ -18,4 +25,34 @@ df<- as.data.frame(cbind(x, y))
 plot(df$x, df$y)
 ```
 
+Commit and push to git
+```{r}
+#save rmd
+#check it in the git panel under 'staged'
+#hit commit 
+#make a comment and mark the date and time
+#hit commit
+#hit push
+#Check your repo online
+```
+
+Try adding your data to the new project
+```{r}
+#place a .csv file in the project file in your windows explorer (or mac equivilent)
+#read in table
+sample<- read.csv('test_data.csv')
+
+#try an analyses
+summary(lm(Count ~ Year*Site, data = sample))
+
+#try a plot
+ggplot(data = sample, aes(x = Site, y = Count, color = Year)) +
+  geom_point(aes(x = Site, y = Count, color = Year), position = 'jitter') +
+  geom_boxplot(aes(x = Site, y = Count), alpha = 0.5)
+```
+
+Commit and push csv and changes to the rmd
+```{r}
+#try on your own using steps from previous "commit and push" chunk
+```
 
