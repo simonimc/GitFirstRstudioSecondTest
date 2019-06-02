@@ -43,7 +43,9 @@ Try adding your data to the new project
 sample<- read.csv('test_data.csv')
 
 #try an analyses
-summary(lm(Count ~ Year*Site, data = sample))
+sample_lm<- lm(Count ~ Year*Site, data = sample) 
+sample_anova<- anova(sample_lm)
+sample_lm_output<- summary(sample_lm)
 
 #try a plot
 ggplot(data = sample, aes(x = Site, y = Count, color = Year)) +
@@ -55,4 +57,54 @@ Commit and push csv and changes to the rmd
 ```{r}
 #try on your own using steps from previous "commit and push" chunk
 ```
+
+Try putting your plot as a jpeg file in the repository
+```{r}
+#save plot as a jpeg in the project directory
+#commit and push
+```
+
+Now lets try using the Shell to commit and push
+```{r}
+#run your lm analyses objects and copy and past the output into this chunk
+##don't forget to place '#' at the beginning of the output lines!
+###TIP: hold down 'Alt' before clicking at the beginning of the firstoutput line, and scroll your cursor down the entire output. You will only need to click and hit '#' once! :)
+
+sample_anova
+#Analysis of Variance Table
+
+#Response: Count
+#          Df Sum Sq Mean Sq F value  Pr(>F)  
+#Year       1   1.07   1.066  0.1402 0.70915  
+#Site       1  21.00  21.002  2.7617 0.10089  
+#Year:Site  1  33.36  33.361  4.3868 0.03974 *
+#Residuals 72 547.56   7.605                  
+#---
+#Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+sample_lm_output
+#Call:
+#lm(formula = Count ~ Year * Site, data = sample)
+
+#Residuals:
+#    Min      1Q  Median      3Q     Max 
+#-4.7020 -2.2066 -0.1157  2.2011  5.6323 
+
+#Coefficients:
+#             Estimate Std. Error t value Pr(>|t|)   
+#(Intercept)   3.39516    0.99831   3.401   0.0011 **
+#Year          0.13893    0.05280   2.631   0.0104 * 
+#Sitetrx       1.46566    2.08643   0.702   0.4847   
+#Year:Sitetrx -0.13012    0.06213  -2.094   0.0397 * 
+#---
+#Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+#
+#Residual standard error: 2.758 on 72 degrees of freedom
+#Multiple R-squared:  0.09193,	Adjusted R-squared:  0.05409 
+#F-statistic:  2.43 on 3 and 72 DF,  p-value: 0.0722
+
+#Go through your commit and push steps
+```
+
 
