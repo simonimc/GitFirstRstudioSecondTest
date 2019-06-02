@@ -64,7 +64,7 @@ Try putting your plot as a jpeg file in the repository
 #commit and push
 ```
 
-Now lets try using the Shell to commit and push
+Now lets try one more time by committing and pushing analyses outputs
 ```{r}
 #run your lm analyses objects and copy and past the output into this chunk
 ##don't forget to place '#' at the beginning of the output lines!
